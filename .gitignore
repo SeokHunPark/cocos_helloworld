@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Cocos2d-x Engine
+cocos2d/

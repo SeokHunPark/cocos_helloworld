@@ -10,4 +10,5 @@ public:
 	CREATE_FUNC(Game);
 
 	void addCruiser(float dt);
+	void addDestroyer(float dt);
 };
