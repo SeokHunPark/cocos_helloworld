@@ -27,5 +27,13 @@
 *.out
 *.app
 
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
 # Cocos2d-x Engine
 cocos2d/
