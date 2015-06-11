@@ -13,4 +13,5 @@ public:
 	void addDestroyer(float dt);
 
 	void shootFromDokdo(float dt);
+	void dropNuclearBomb(float dt);
 };

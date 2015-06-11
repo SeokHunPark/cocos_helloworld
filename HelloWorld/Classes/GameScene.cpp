@@ -64,13 +64,16 @@ bool Game::init()
 	addChild(spriteFadeRadar);
 
 	auto fadeOut = FadeOut::create(4);
-	auto fadeForever = RepeatForever::create(fadeOut);
+	auto fadeIn = FadeIn::create(0);
+	auto sequenceFade = Sequence::create(fadeOut, fadeIn, NULL);
+	auto fadeForever = RepeatForever::create(sequenceFade);
 	spriteFadeRadar->runAction(fadeForever);
 
 	// Schedule
 	schedule(schedule_selector(Game::addCruiser), 5.0f);
 	schedule(schedule_selector(Game::addDestroyer), 3.0f);
 	schedule(schedule_selector(Game::shootFromDokdo), 0.6f);
+	schedule(schedule_selector(Game::dropNuclearBomb), 4.0f);
 
 	return true;
 }
@@ -134,4 +137,26 @@ void Game::shootFromDokdo(float dt)
 
 	auto actionInterval = EaseOut::create(moveBy, 1.8f);
 	spriteBullet->runAction(actionInterval);
+}
+
+void Game::dropNuclearBomb(float dt)
+{
+	Size winSize = Director::getInstance()->getWinSize();
+
+	auto spriteBomb = Sprite::create("MISSILE.png");
+	float bombHeight = spriteBomb->getContentSize().height;
+	float beginScale = (winSize.height / 6) / bombHeight;
+	float finishScale = (winSize.height / 40) / bombHeight;
+
+	spriteBomb->setScale(beginScale);
+	float visibleHeight = spriteBomb->getBoundingBox().size.height;
+	spriteBomb->setPosition(Vec2(winSize.width * 0.5, 0 - (visibleHeight * 0.5)));
+	addChild(spriteBomb, ZORDER_NUCLEAR);
+
+	auto moveBy = MoveBy::create(1.5f, Vec2(0, winSize.height * 0.66));
+	auto actionInterval = EaseOut::create(moveBy, 1.8f);
+	auto scaleTo = ScaleTo::create(1.5f, finishScale);
+	auto spawn = Spawn::create(actionInterval, scaleTo, NULL);
+
+	spriteBomb->runAction(spawn);
 }
