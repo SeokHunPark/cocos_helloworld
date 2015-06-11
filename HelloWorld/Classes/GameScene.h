@@ -11,4 +11,6 @@ public:
 
 	void addCruiser(float dt);
 	void addDestroyer(float dt);
+
+	void shootFromDokdo(float dt);
 };

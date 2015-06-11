@@ -31,9 +31,46 @@ bool Game::init()
 	spriteDOKDO->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	addChild(spriteDOKDO, ZORDER_DOKDO);
 
-	// Cruiser
+	// Rotate Radar
+	auto spriteRotateRadar = Sprite::create("radar_01.png");
+	spriteRotateRadar->setAnchorPoint(Vec2(1, 0));
+	spriteRotateRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+
+	float scale = winSize.height / spriteRotateRadar->getContentSize().height;
+	spriteRotateRadar->setScale(scale);
+	addChild(spriteRotateRadar, ZORDER_RADAR);
+
+	auto rotateBy = RotateBy::create(10, 360);
+	auto repeatForever = RepeatForever::create(rotateBy);
+	spriteRotateRadar->runAction(repeatForever);
+
+	// Scale Radar
+	auto spriteScaleRadar = Sprite::create("radar_00.png");
+	spriteScaleRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	spriteScaleRadar->setScale(0);
+	addChild(spriteScaleRadar, ZORDER_RADAR);
+
+	scale = winSize.height / spriteScaleRadar->getContentSize().height;
+	auto scaleTo = ScaleTo::create(4, scale);	
+	auto scaleToZero = ScaleTo::create(0, 0);
+	auto sequenceScale = Sequence::create(scaleTo, scaleToZero, NULL);
+	auto scaleForever = RepeatForever::create(sequenceScale);
+	spriteScaleRadar->runAction(scaleForever);
+
+	// Fade Radar
+	auto spriteFadeRadar = Sprite::create("radar_00.png");
+	spriteFadeRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	spriteFadeRadar->setScale(scale);
+	addChild(spriteFadeRadar);
+
+	auto fadeOut = FadeOut::create(4);
+	auto fadeForever = RepeatForever::create(fadeOut);
+	spriteFadeRadar->runAction(fadeForever);
+
+	// Schedule
 	schedule(schedule_selector(Game::addCruiser), 5.0f);
 	schedule(schedule_selector(Game::addDestroyer), 3.0f);
+	schedule(schedule_selector(Game::shootFromDokdo), 0.6f);
 
 	return true;
 }
@@ -58,7 +95,7 @@ void Game::addCruiser(float dt)
 
 	ccBezierConfig bezierConfig;
 	bezierConfig.controlPoint_1 = Vec2(position.x, winSize.height * 0.6f);
-	bezierConfig.controlPoint_2 = Vec2(position.x + (xDistance * 0.33), winSize.height * 0.4f);
+	bezierConfig.controlPoint_2 = Vec2(position.x + (xDistance / 3.0f), winSize.height * 0.4f);
 	bezierConfig.endPosition = Vec2(winSize.width * 0.5, winSize.height * 0.25);
 
 	auto bezierTo = BezierTo::create(10.f, bezierConfig);
@@ -79,4 +116,22 @@ void Game::addDestroyer(float dt)
 
 	auto moveTo = MoveTo::create(7.f, Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	spriteDestroyer->runAction(moveTo);
+}
+
+void Game::shootFromDokdo(float dt)
+{
+	Size winSize = Director::getInstance()->getWinSize();
+
+	auto spriteBullet = Sprite::create("bullet.png");
+	float scale = (winSize.height / 30) / spriteBullet->getContentSize().height;
+	spriteBullet->setScale(scale);
+	spriteBullet->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	spriteBullet->setRotation(180);
+
+	addChild(spriteBullet, ZORDER_BULLET);
+
+	auto moveBy = MoveBy::create(1.5f, Vec2(0, winSize.height * 0.5));
+
+	auto actionInterval = EaseOut::create(moveBy, 1.8f);
+	spriteBullet->runAction(actionInterval);
 }

@@ -1,4 +1,4 @@
-﻿Build started 2015-06-11 오전 2:51:17.
+﻿Build started 2015-06-12 오전 12:56:31.
      1>Project "D:\git\cocos_helloworld\HelloWorld\proj.win32\HelloWorld.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\audio\include /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\chipmunk\include\chipmunk /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\extensions /I..\Classes /I.. /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\editor-support" /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform\desktop /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\GameScene.cpp
@@ -26,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.54
+Time Elapsed 00:00:04.05
