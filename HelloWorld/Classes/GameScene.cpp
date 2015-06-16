@@ -31,49 +31,49 @@ bool Game::init()
 	spriteDOKDO->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	addChild(spriteDOKDO, ZORDER_DOKDO);
 
-	// Rotate Radar
-	auto spriteRotateRadar = Sprite::create("radar_01.png");
-	spriteRotateRadar->setAnchorPoint(Vec2(1, 0));
-	spriteRotateRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	//// Rotate Radar
+	//auto spriteRotateRadar = Sprite::create("radar_01.png");
+	//spriteRotateRadar->setAnchorPoint(Vec2(1, 0));
+	//spriteRotateRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 
-	float scale = winSize.height / spriteRotateRadar->getContentSize().height;
-	spriteRotateRadar->setScale(scale);
-	addChild(spriteRotateRadar, ZORDER_RADAR);
+	//float scale = winSize.height / spriteRotateRadar->getContentSize().height;
+	//spriteRotateRadar->setScale(scale);
+	//addChild(spriteRotateRadar, ZORDER_RADAR);
 
-	auto rotateBy = RotateBy::create(10, 360);
-	auto repeatForever = RepeatForever::create(rotateBy);
-	spriteRotateRadar->runAction(repeatForever);
+	//auto rotateBy = RotateBy::create(10, 360);
+	//auto repeatForever = RepeatForever::create(rotateBy);
+	//spriteRotateRadar->runAction(repeatForever);
 
-	// Scale Radar
-	auto spriteScaleRadar = Sprite::create("radar_00.png");
-	spriteScaleRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
-	spriteScaleRadar->setScale(0);
-	addChild(spriteScaleRadar, ZORDER_RADAR);
+	//// Scale Radar
+	//auto spriteScaleRadar = Sprite::create("radar_00.png");
+	//spriteScaleRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	//spriteScaleRadar->setScale(0);
+	//addChild(spriteScaleRadar, ZORDER_RADAR);
 
-	scale = winSize.height / spriteScaleRadar->getContentSize().height;
-	auto scaleTo = ScaleTo::create(4, scale);	
-	auto scaleToZero = ScaleTo::create(0, 0);
-	auto sequenceScale = Sequence::create(scaleTo, scaleToZero, NULL);
-	auto scaleForever = RepeatForever::create(sequenceScale);
-	spriteScaleRadar->runAction(scaleForever);
+	//scale = winSize.height / spriteScaleRadar->getContentSize().height;
+	//auto scaleTo = ScaleTo::create(4, scale);	
+	//auto scaleToZero = ScaleTo::create(0, 0);
+	//auto sequenceScale = Sequence::create(scaleTo, scaleToZero, NULL);
+	//auto scaleForever = RepeatForever::create(sequenceScale);
+	//spriteScaleRadar->runAction(scaleForever);
 
-	// Fade Radar
-	auto spriteFadeRadar = Sprite::create("radar_00.png");
-	spriteFadeRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
-	spriteFadeRadar->setScale(scale);
-	addChild(spriteFadeRadar);
+	//// Fade Radar
+	//auto spriteFadeRadar = Sprite::create("radar_00.png");
+	//spriteFadeRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
+	//spriteFadeRadar->setScale(scale);
+	//addChild(spriteFadeRadar);
 
-	auto fadeOut = FadeOut::create(4);
-	auto fadeIn = FadeIn::create(0);
-	auto sequenceFade = Sequence::create(fadeOut, fadeIn, NULL);
-	auto fadeForever = RepeatForever::create(sequenceFade);
-	spriteFadeRadar->runAction(fadeForever);
+	//auto fadeOut = FadeOut::create(4);
+	//auto fadeIn = FadeIn::create(0);
+	//auto sequenceFade = Sequence::create(fadeOut, fadeIn, NULL);
+	//auto fadeForever = RepeatForever::create(sequenceFade);
+	//spriteFadeRadar->runAction(fadeForever);
 
 	// Schedule
 	schedule(schedule_selector(Game::addCruiser), 5.0f);
 	schedule(schedule_selector(Game::addDestroyer), 3.0f);
-	schedule(schedule_selector(Game::shootFromDokdo), 0.6f);
-	schedule(schedule_selector(Game::dropNuclearBomb), 4.0f);
+	//schedule(schedule_selector(Game::shootFromDokdo), 0.6f);
+	//schedule(schedule_selector(Game::dropNuclearBomb), 4.0f);
 
 	return true;
 }

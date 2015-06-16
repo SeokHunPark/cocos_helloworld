@@ -35,10 +35,10 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameScene.h">
+    <ClInclude Include="..\Classes\Defines.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Defines.h">
+    <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
