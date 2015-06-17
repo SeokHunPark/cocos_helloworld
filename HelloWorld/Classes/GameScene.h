@@ -14,4 +14,6 @@ public:
 
 	void shootFromDokdo(float dt);
 	void dropNuclearBomb(float dt);
+
+	void selfRemover(Node* sender);
 };

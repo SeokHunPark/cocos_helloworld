@@ -102,7 +102,10 @@ void Game::addCruiser(float dt)
 	bezierConfig.endPosition = Vec2(winSize.width * 0.5, winSize.height * 0.25);
 
 	auto bezierTo = BezierTo::create(10.f, bezierConfig);
-	spriteCruiser->runAction(bezierTo);
+	
+	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
+	auto sequence = Sequence::create(bezierTo, callfunc, NULL);
+	spriteCruiser->runAction(sequence);
 }
 
 void Game::addDestroyer(float dt)
@@ -118,7 +121,10 @@ void Game::addDestroyer(float dt)
 	addChild(spriteDestroyer, ZORDER_SHIP);
 
 	auto moveTo = MoveTo::create(7.f, Vec2(winSize.width * 0.5, winSize.height * 0.25));
-	spriteDestroyer->runAction(moveTo);
+	
+	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
+	auto sequence = Sequence::create(moveTo, callfunc, NULL);
+	spriteDestroyer->runAction(sequence);
 }
 
 void Game::shootFromDokdo(float dt)
@@ -134,9 +140,11 @@ void Game::shootFromDokdo(float dt)
 	addChild(spriteBullet, ZORDER_BULLET);
 
 	auto moveBy = MoveBy::create(1.5f, Vec2(0, winSize.height * 0.5));
-
 	auto actionInterval = EaseOut::create(moveBy, 1.8f);
-	spriteBullet->runAction(actionInterval);
+	
+	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
+	auto sequence = Sequence::create(actionInterval, callfunc, NULL);
+	spriteBullet->runAction(sequence);
 }
 
 void Game::dropNuclearBomb(float dt)
@@ -158,5 +166,12 @@ void Game::dropNuclearBomb(float dt)
 	auto scaleTo = ScaleTo::create(1.5f, finishScale);
 	auto spawn = Spawn::create(actionInterval, scaleTo, NULL);
 
-	spriteBomb->runAction(spawn);
+	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
+	auto sequence = Sequence::create(spawn, callfunc, NULL);
+	spriteBomb->runAction(sequence);
+}
+
+void Game::selfRemover(Node* sender)
+{
+	sender->removeFromParentAndCleanup(true);
 }
