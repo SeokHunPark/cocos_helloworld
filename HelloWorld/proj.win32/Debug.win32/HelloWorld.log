@@ -1,17 +1,12 @@
-﻿빌드 시작: 2015-06-18 오전 2:13:28
+﻿빌드 시작: 2015-06-24 오전 1:20:27
      1>2 노드의 "D:\git\cocos_helloworld\HelloWorld\proj.win32\HelloWorld.vcxproj" 프로젝트(Build 대상)입니다.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\audio\include /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\chipmunk\include\chipmunk /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\extensions /I..\Classes /I.. /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\editor-support" /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform\desktop /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\freetype2\include\win32\freetype2 /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\freetype2\include\win32\ /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\AppDelegate.cpp ..\Classes\GameScene.cpp
-         AppDelegate.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\audio\include /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\chipmunk\include\chipmunk /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\extensions /I..\Classes /I.. /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\editor-support" /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\cocos\platform\desktop /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\freetype2\include\win32\freetype2 /ID:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\freetype2\include\win32\ /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\GameScene.cpp
          GameScene.cpp
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\base\ccutf8.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\GameScene.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\base\ccutf8.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\AppDelegate.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsbody.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\AppDelegate.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsbody.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\GameScene.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsshape.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\AppDelegate.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsshape.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\GameScene.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\platform\ccsaxparser.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\AppDelegate.cpp)
-     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\platform\ccsaxparser.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (..\Classes\GameScene.cpp)
+     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\base\ccutf8.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsbody.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\physics\ccphysicsshape.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+     1>d:\git\cocos_helloworld\helloworld\cocos2d\cocos\platform\ccsaxparser.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
        PreLinkEvent:
          if not exist "D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\" mkdir "D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\"
          xcopy /Y /Q "D:\git\cocos_helloworld\HelloWorld\cocos2d\cocos\2d\..\..\external\websockets\prebuilt\win32\*.*" "D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\"
@@ -28,11 +23,9 @@
          D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\libcocos2d.lib
          D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\libSpine.lib
          D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\libbox2d.lib
-     1>AppDelegate.obj : warning LNK4075: '/EDITANDCONTINUE'이(가) '/SAFESEH' 사양으로 인해 무시됩니다.
-            D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\HelloWorld.lib 라이브러리 및 D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\HelloWorld.exp 개체를 생성하고 있습니다.
          HelloWorld.vcxproj -> D:\git\cocos_helloworld\HelloWorld\proj.win32\Debug.win32\HelloWorld.exe
      1>"D:\git\cocos_helloworld\HelloWorld\proj.win32\HelloWorld.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
 
 빌드했습니다.
 
-경과 시간: 00:00:05.72
+경과 시간: 00:00:03.11

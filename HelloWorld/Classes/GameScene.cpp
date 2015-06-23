@@ -74,6 +74,7 @@ bool Game::init()
 	schedule(schedule_selector(Game::addDestroyer), 3.0f);
 	schedule(schedule_selector(Game::shootFromDokdo), 0.6f);
 	schedule(schedule_selector(Game::dropNuclearBomb), 4.0f);
+	schedule(schedule_selector(Game::addCloud), 8.0);
 
 	return true;
 }
@@ -125,6 +126,38 @@ void Game::addDestroyer(float dt)
 	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
 	auto sequence = Sequence::create(moveTo, callfunc, NULL);
 	spriteDestroyer->runAction(sequence);
+}
+void Game::addCloud(float dt)
+{
+	Size winSize = Director::getInstance()->getWinSize();
+
+	int cloudNum = rand() % 3;
+	char szFileName[16] = { 0, };
+	sprintf(szFileName, "cloud_%02d.png", cloudNum);
+	auto spriteCloud = Sprite::create(szFileName);
+
+	float frand = ((rand() % 4) + 6) / 10.f;
+	float scale = (winSize.width * frand) / spriteCloud->getContentSize().width;
+	spriteCloud->setScale(scale);
+	spriteCloud->setAnchorPoint(Vec2(1, 0.5));
+
+	float xPos = 0;
+	float yPos = (rand() % (int)winSize.height);
+	spriteCloud->setPosition(Vec2(xPos, yPos));
+
+	BlendFunc bf = { GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA };
+	spriteCloud->setBlendFunc(bf);
+
+	float moveTime = 8 + (rand() % 3);
+	auto moveBy = MoveBy::create(moveTime, Vec2(winSize.width + spriteCloud->getBoundingBox().size.width, 0));
+
+	auto callfunc = CallFuncN::create(CC_CALLBACK_1(Game::selfRemover, this));
+
+	auto sequence = Sequence::create(moveBy, callfunc, NULL);
+
+	spriteCloud->runAction(sequence);
+
+	addChild(spriteCloud, ZORDER_CLOUD);
 }
 
 void Game::shootFromDokdo(float dt)

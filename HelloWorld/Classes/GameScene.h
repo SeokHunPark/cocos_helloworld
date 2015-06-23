@@ -11,6 +11,7 @@ public:
 
 	void addCruiser(float dt);
 	void addDestroyer(float dt);
+	void addCloud(float dt);
 
 	void shootFromDokdo(float dt);
 	void dropNuclearBomb(float dt);
