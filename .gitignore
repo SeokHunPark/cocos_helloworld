@@ -40,3 +40,4 @@ ipch/
 # Cocos2d-x Engine
 cocos2d/
 Debug.win32/
+/Debug.win32/
