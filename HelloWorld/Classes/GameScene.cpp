@@ -69,6 +69,15 @@ bool Game::init()
 	auto fadeForever = RepeatForever::create(sequenceFade);
 	spriteFadeRadar->runAction(fadeForever);
 
+	// Explosion
+	/*auto spriteExplosion = Sprite::create("explosion_effect_18.png");
+	spriteExplosion->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.5));
+	spriteExplosion->setScale(winSize.width / spriteExplosion->getContentSize().width);
+	addChild(spriteExplosion, ZORDER_EXPLOSION_S);
+	
+	BlendFunc bfLinearDodge = { GL_ONE, GL_ONE };
+	spriteExplosion->setBlendFunc(bfLinearDodge);*/
+
 	// Schedule
 	schedule(schedule_selector(Game::addCruiser), 5.0f);
 	schedule(schedule_selector(Game::addDestroyer), 3.0f);
