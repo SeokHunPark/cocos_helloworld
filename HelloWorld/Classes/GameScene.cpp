@@ -26,29 +26,34 @@ bool Game::init()
 	spriteSEA->setScaleX(winSize.width / spriteSEA->getContentSize().width);
 	addChild(spriteSEA, ZORDER_SEA);
 
+	// Surface SpriteBatchNode
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Surface.plist");
+	auto spriteBatchNodeSurface = SpriteBatchNode::create("Surface.png");
+	addChild(spriteBatchNodeSurface, ZORDER_SPRITE_BATCH_NODE_SURFACE, TAG_SPRITE_BATCH_NODE_SURFACE);
+
 	// Dokdo
-	auto spriteDOKDO = Sprite::create("DOKDO.png");
+	auto spriteDOKDO = Sprite::createWithSpriteFrameName("DOKDO.png");
 	spriteDOKDO->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
-	addChild(spriteDOKDO, ZORDER_DOKDO);
+	spriteBatchNodeSurface->addChild(spriteDOKDO, ZORDER_DOKDO);
 
 	// Rotate Radar
-	auto spriteRotateRadar = Sprite::create("radar_01.png");
+	auto spriteRotateRadar = Sprite::createWithSpriteFrameName("radar_01.png");
 	spriteRotateRadar->setAnchorPoint(Vec2(1, 0));
 	spriteRotateRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 
 	float scale = winSize.height / spriteRotateRadar->getContentSize().height;
 	spriteRotateRadar->setScale(scale);
-	addChild(spriteRotateRadar, ZORDER_RADAR);
+	spriteBatchNodeSurface->addChild(spriteRotateRadar, ZORDER_RADAR);
 
 	auto rotateBy = RotateBy::create(10, 360);
 	auto repeatForever = RepeatForever::create(rotateBy);
 	spriteRotateRadar->runAction(repeatForever);
 
 	// Scale Radar
-	auto spriteScaleRadar = Sprite::create("radar_00.png");
+	auto spriteScaleRadar = Sprite::createWithSpriteFrameName("radar_00.png");
 	spriteScaleRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	spriteScaleRadar->setScale(0);
-	addChild(spriteScaleRadar, ZORDER_RADAR);
+	spriteBatchNodeSurface->addChild(spriteScaleRadar, ZORDER_RADAR);
 
 	scale = winSize.height / spriteScaleRadar->getContentSize().height;
 	auto scaleTo = ScaleTo::create(4, scale);	
@@ -58,10 +63,10 @@ bool Game::init()
 	spriteScaleRadar->runAction(scaleForever);
 
 	// Fade Radar
-	auto spriteFadeRadar = Sprite::create("radar_00.png");
+	auto spriteFadeRadar = Sprite::createWithSpriteFrameName("radar_00.png");
 	spriteFadeRadar->setPosition(Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	spriteFadeRadar->setScale(scale);
-	addChild(spriteFadeRadar);
+	spriteBatchNodeSurface->addChild(spriteFadeRadar);
 
 	auto fadeOut = FadeOut::create(4);
 	auto fadeIn = FadeIn::create(0);
@@ -92,13 +97,15 @@ void Game::addCruiser(float dt)
 {
 	Size winSize = Director::getInstance()->getWinSize();
 
-	auto spriteCruiser = Sprite::create("cruiser.png");
+	auto spriteBatchNodeSurface = (SpriteBatchNode*)getChildByTag(TAG_SPRITE_BATCH_NODE_SURFACE);
+
+	auto spriteCruiser = Sprite::createWithSpriteFrameName("cruiser.png");
 	float xPos = rand() % (int)winSize.width;
 	float yPos = winSize.height;
 	spriteCruiser->setPosition(Vec2(xPos, yPos));
 	spriteCruiser->setAnchorPoint(Vec2(0.5, 0));
 
-	addChild(spriteCruiser);
+	spriteBatchNodeSurface->addChild(spriteCruiser);
 
 	/*auto moveTo = MoveTo::create(10.f, Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	spriteCruiser->runAction(moveTo);*/
@@ -122,13 +129,15 @@ void Game::addDestroyer(float dt)
 {
 	Size winSize = Director::getInstance()->getWinSize();
 
-	auto spriteDestroyer = Sprite::create("destroyer.png");
+	auto spriteBatchNodeSurface = (SpriteBatchNode*)getChildByTag(TAG_SPRITE_BATCH_NODE_SURFACE);
+
+	auto spriteDestroyer = Sprite::createWithSpriteFrameName("destroyer.png");
 	float xPos = rand() % (int)winSize.width;
 	float yPos = winSize.height;
 	spriteDestroyer->setPosition(Vec2(xPos, yPos));
 	spriteDestroyer->setAnchorPoint(Vec2(0.5, 0));
 
-	addChild(spriteDestroyer, ZORDER_SHIP);
+	spriteBatchNodeSurface->addChild(spriteDestroyer, ZORDER_SHIP);
 
 	auto moveTo = MoveTo::create(7.f, Vec2(winSize.width * 0.5, winSize.height * 0.25));
 	
